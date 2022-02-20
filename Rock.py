@@ -11,10 +11,11 @@ messages = ['всё будет хорошо!','ты со всем справиш
 def handle_start_help(message):
     voice = open('Rock.ogg', 'rb')
     photo = open('{}.jpg'.format(random.randint(1,5)), 'rb')
-    if message.chat.type == "private" or message.chat.type == "group" or message.chat.type == "supergroup":
-        name = message.text
-        bot.send_message(message.from_user.id, '{}'.format(name.title())+', '+messages[random.randint(0,len(messages)-1)] + ' Скала верит в тебя!')
-        bot.send_photo(message.from_user.id,photo)
-        bot.send_voice(message.from_user.id,voice)
+    name = message.text
+    bot.send_message(message.from_user.id,message.chat.id, '{}'.format(name.title())+', '+messages[random.randint(0,len(messages)-1)] + ' Скала верит в тебя!')
+    bot.send_photo(message.from_user.id,message.chat.id,photo)
+    bot.send_voice(message.from_user.id,message.chat.id,voice)
+   
+        
     
 bot.polling(none_stop=True, interval=0)

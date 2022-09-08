@@ -1,7 +1,7 @@
 import telebot;
 import random
 from telebot import types
-bot = telebot.TeleBot('5163682639:AAHFnSTJvnAdqYgs-DT6-pt7eAzTGDyTFuI')
+bot = telebot.TeleBot('TOKEN')
 name=''
 @bot.message_handler( commands=['start', 'help'])
 def handle_start_help(message):
